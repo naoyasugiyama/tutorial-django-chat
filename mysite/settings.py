@@ -124,3 +124,12 @@ STATIC_URL = '/static/'
 
 # settings.pyの最下部に以下を追記する
 ASGI_APPLICATION = 'mysite.routing.application'
+# add docker redis 2.8
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts":[('127.0.0.1', 6379)],
+        },
+    },
+}
